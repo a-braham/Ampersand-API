@@ -1,25 +1,26 @@
 import Battery from 'models/battery';
 import Bike from 'models/bike';
 import Station from 'models/station';
+import Transaction from 'models/transaction';
 
-Battery.belongsTo(Bike, {
+Transaction.belongsTo(Bike, {
   foreignKey: 'bike_id',
   as: 'bike',
 });
 
-Battery.belongsTo(Station, {
+Transaction.belongsTo(Station, {
   foreignKey: 'station_id',
   as: 'station',
 });
 
-Battery.belongsTo(Battery, {
+Transaction.belongsTo(Battery, {
   foreignKey: 'old_battery',
-  as: 'old_battery',
+  as: 'odlBattery',
 });
 
-Battery.belongsTo(Battery, {
+Transaction.belongsTo(Battery, {
   foreignKey: 'new_battery',
-  as: 'new_battery',
+  as: 'newBattery',
 });
 
 export {};
