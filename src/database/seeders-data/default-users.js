@@ -1,6 +1,6 @@
 const dayjs = require("dayjs");
 
-const created_at = dayjs("2022-07-10").format();
+const created_at = dayjs("2022-10-06").format();
 const updated_at = created_at;
 
 module.exports = [
