@@ -7,6 +7,7 @@ import db from './index';
 class Bike extends Model {
   public id!: number;
   public reg_number!: string;
+  public dist_reading!: number;
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
@@ -24,6 +25,9 @@ Bike.init(
     },
     reg_number: {
       type: DataTypes.STRING,
+    },
+    dist_reading: {
+      type: DataTypes.DOUBLE,
     },
   },
   {

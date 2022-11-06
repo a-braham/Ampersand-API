@@ -11,12 +11,11 @@ interface Database {
   sequelize: Sequelize;
 }
 
-const db: Database = {
-  sequelize: new Sequelize(
-    process.env[config.use_env_variable] as string,
 
-    config,
-  ),
+export const sequelize = new Sequelize(process.env[config.use_env_variable] as string, config);
+
+const db: Database = {
+  sequelize,
 };
 
 export default db;
