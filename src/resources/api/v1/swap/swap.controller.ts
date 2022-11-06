@@ -45,6 +45,8 @@ export const swap = async (req: Request, res: Response): Promise<Response> => {
     });
   }
 
+
+  // Every battery is recorded in our platform. Get the last record to show the last battery installed
   const previousBattery = await Transaction.findOne({
     order: [['created_at', 'DESC']],
     where: {
@@ -75,8 +77,9 @@ export const swap = async (req: Request, res: Response): Promise<Response> => {
         [Op.gt]: Number(batteryPower),
       },
     },
-  }); 
+  });
 
+  // We need to record the power used and distance covered
   const usedPower = Number(previousBatteryPowerReading) - Number(batteryPower);
 
   const cost = usedPower * 12;
@@ -111,7 +114,7 @@ export const swap = async (req: Request, res: Response): Promise<Response> => {
   return jsonResponse({
     res,
     status: OK,
-    message: 'battery swapped',
+    message: 'Battery swapped successfully',
     data: swapData,
   });
 };
