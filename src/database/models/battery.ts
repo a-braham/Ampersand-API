@@ -2,9 +2,9 @@ import { Model, DataTypes } from 'sequelize';
 import db from './index';
 
 /**
- * Station Class Model
+ * Battery Class Model
  */
-class Station extends Model {
+class Battery extends Model {
   public id!: number;
   public serial_number!: string;
   public current_power!: number;
@@ -19,7 +19,7 @@ class Station extends Model {
   public static associations: {};
 }
 
-Station.init(
+Battery.init(
   {
     id: {
       allowNull: false,
@@ -48,11 +48,11 @@ Station.init(
   },
   {
     sequelize: db.sequelize,
-    tableName: 'stations',
+    tableName: 'batteries',
     underscored: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   },
 );
 
-export default Station;
+export default Battery;
