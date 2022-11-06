@@ -1,0 +1,28 @@
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "10"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "helpers": "./src/helpers",
+            "middlewares": "./src/middlewares",
+            "constants": "./src/constants",
+            "models": "./src/database/models",
+            "resources": "./src/resources",
+          }
+        }
+      ]
+    ]
+  }
+  
